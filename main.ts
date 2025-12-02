@@ -13,8 +13,8 @@ function getmax(a: number, b: number) {
     
 }
 
-let d = 0
 let c = 0
+let d = 0
 //  the basic module provides access to the microbit functionality
 basic.showIcon(IconNames.LeftTriangle)
 basic.showNumber(12)
@@ -23,21 +23,19 @@ basic.showString("Robotics<..>")
 let strip = neopixel.create(DigitalPin.P15, 24, NeoPixelMode.RGB)
 strip.showRainbow(1, 360)
 //  function call that controls how long the bot moves
-cuteBot.moveTime(cuteBot.Direction.forward, 60, 300)
+cuteBot.moveTime(cuteBot.Direction.forward, 20, 160)
 //  cuteBot.Direction.BACKWARD
 //  cuteBot.Direction.FORWARD
 getmax(6, 6)
-// the cuteBot.ultrasonic(cuteBot.SonarUnit.CENTIMETERS) returns a value and assigned
-// to the distance variable,then we check if distance is in given range,stop or move left
-cuteBot.moveTime(cuteBot.Direction.forward, 60, 3000)
+//  the cuteBot.ultrasonic(cuteBot.SonarUnit.CENTIMETERS) returns a value and assigned
+//  to the distance variable,then we check if distance is in given range,stop or move left
+cuteBot.moveTime(cuteBot.Direction.forward, 20, 160)
 while (true) {
     distance = cuteBot.ultrasonic(cuteBot.SonarUnit.Centimeters)
-    if (distance < 10) {
-        cuteBot.stopcar()
-        basic.showString("Turning")
-    } else {
+    if (distance <= 10) {
         cuteBot.Direction.left
-        cuteBot.motors(30, 90)
+        cuteBot.Direction.forward
+        cuteBot.motors(10, 10)
     }
     
 }
